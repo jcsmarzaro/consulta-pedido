@@ -1,18 +1,15 @@
 stages:
- #branches:
-  #main:
-- name: Build
-  steps:
-  - runScriptConfig:
+ - name: Build
+   steps:
+   - runScriptConfig:
       image: mcr.microsoft.com/dotnet/sdk:6.0
-      
-- name: Publish
-  steps:
-  - publishImageConfig:
+ - name: Publish
+   steps:
+   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: go-server:${CICD_EXECUTION_SEQUENCE}
-- name: Deploy
-  steps:
-  - applyYamlConfig:
+ - name: Deploy
+   steps:
+    - applyYamlConfig:
       path: ./deployment.yaml
