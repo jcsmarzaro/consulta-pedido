@@ -1,4 +1,6 @@
 stages:
+ branches:
+ main:
 - name: Build
   steps:
   - runScriptConfig:
