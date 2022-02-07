@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Consulta Pedido Operacao</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ConsultaPedidoOperacao.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Consulta Pedido Operação</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                @* <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </li>
+                    </ul>
+                    </div>*@
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @*  <footer class="border-top footer text-muted">
+        <div class="container">
+        &copy; 2021 - ConsultaPedidoOperacao - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+        </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function(){
+               var txtarea = document.querySelector("textarea.form-control");
+               txtarea.style.height = txtarea.scrollHeight+"px";
+            });
+
+
+            window.onload = function() {
+              document.getElementById("xml").checked = true;
+            };
+
+            $('#btnBuscarValor').click(function (event)
+            {
+                setTimeout(function () {
+
+                    $.ajax({
+                        url: '/Results/Result',
+                        type: "POST",
+                        data: {pedido: $('#Pedido').val(), formato:  $('input[name=Formato]:checked').val()},
+                        success: function (data) {
+
+                            $('#Retorno').val(data);
+
+                            alert('Consulta Realizada');
+                        }
+                    });
+                }, 500);
+            return false;
+        });
+
+        $('#btnBaixarTxt').click(function (event)
+            {
+                var pom = document.createElement('a');
+                if($('input[name=Formato]:checked').val() == 'xml')
+                {
+                    pom.setAttribute('href', 'data:text/xml;charset=utf-8,' + encodeURIComponent($('#Retorno').val()));
+                }
+                else
+                {
+                    pom.setAttribute('href', 'data:application/json;charset=utf-8,' + encodeURIComponent($('#Retorno').val()));
+                }
+
+                pom.setAttribute('download', $('#Pedido').val());
+
+                if (document.createEvent) {
+                    var event = document.createEvent('MouseEvents');
+                    event.initEvent('click', true, true);
+                    pom.dispatchEvent(event);
+                }
+                else {
+                    pom.click();
+            }
+            });
+
+
+
+
+    </script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

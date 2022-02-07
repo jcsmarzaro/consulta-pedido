@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Users\wesley.oliveira\Desktop\AspNetCoreMVC\ConsultaPedidoOperacao\Publicar</_PublishTargetUrl>
+    <History>True|2021-11-25T20:10:11.1118835Z;True|2021-11-25T17:09:52.6114052-03:00;True|2021-11-24T13:45:54.7940174-03:00;</History>
+  </PropertyGroup>
+</Project>

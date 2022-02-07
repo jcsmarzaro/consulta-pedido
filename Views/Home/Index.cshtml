@@ -1,0 +1,47 @@
+﻿@model ConsultaPedidoOperacao.Models.VMHome
+<html style="background-color: lightgray">
+<body style="background-color: lightgray">
+    <div>
+
+        <form id="frmOperacaoTermo" enctype="multipart/form-data" class="form-control">
+            <center>
+                <br />
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Pedido, new { @class = "control-label" })
+                    @Html.TextBoxFor(m => m.Pedido, "Selecione", new { @class = "form-control input-sm" })
+                    @Html.ValidationMessageFor(m => m.Pedido, "", new { @class = "text-danger" })
+                </div>
+
+                <br />
+                <p>Formato </p>
+                <div class="form-control">
+                    <input type="radio" value="json" name="Formato" id="Formato" /> Json <br />
+                    <input type="radio" value="xml" name="Formato" id="xml" />   Xml
+                </div>
+                <br />
+                <div class="form-group">
+                    <button id="btnBuscarValor" class="btn btn-primary mb-2" style="width: 80px;">Buscar</button>
+                    <button id="btnBaixarTxt" class="btn btn-primary mb-2" style="width: 80px;">Baixar</button>
+                </div>
+
+                <br />
+
+
+            </center>
+        </form>
+
+        @*<div>
+            @Html.LabelFor(m => m.Retorno, new { @class = "control-label" })
+            @Html.TextBoxFor(m => m.Retorno, "Selecione", new { @class = "form-control input-sm" })
+            @Html.ValidationMessageFor(m => m.Retorno, "", new { @class = "text-danger" })
+            </div>*@
+        <center>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Resultado da Busca</label>
+                <textarea class="form-control" id="Retorno" rows="8" readonly></textarea>
+            </div>
+        </center>
+    </div>
+
+</body>
+</html>
