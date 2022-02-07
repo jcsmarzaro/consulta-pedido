@@ -1,0 +1,59 @@
+
+#apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpo
+  #namespace: go
+  labels:
+    app: cop
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cpo
+  template:
+    metadata:
+      labels:
+        app: cop
+    spec:
+      imagePullSecrets:
+      - name: pipeline-docker-registry
+      containers:
+      - name: cop
+        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        ports:
+        - containerPort: 80
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: cop
+  #namespace: go
+spec:
+  selector:
+    app: cop
+  type: ClusterIP
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  #namespace: go
+  name: go-ingress
+  annotations:
+    allow.http: "false"
+spec:
+  rules:
+  - host: go.rancher.selia.com.br
+    http:
+      paths:
+        - path: /
+          backend:
+            serviceName: cop
+            servicePort: 80
