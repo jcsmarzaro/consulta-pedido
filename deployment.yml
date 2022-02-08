@@ -1,43 +1,36 @@
 
-#apiVersion: apps/v1
+---
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cpo
-  #namespace: go
-  labels:
-    app: cop
+  name: cop
 spec:
-  replicas: 3
   selector:
     matchLabels:
-      app: cpo
+      run: cop
+  replicas: 1
   template:
     metadata:
       labels:
-        app: cop
+        run: cop
     spec:
-      imagePullSecrets:
-      - name: pipeline-docker-registry
       containers:
       - name: cop
-        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        image: ghcr.io/seliafullcommerce/consulta-pedido-operacao:latest
         ports:
         - containerPort: 80
-
 ---
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
   name: cop
-  #namespace: go
+  labels:
+    run: cop
 spec:
-  selector:
-    app: cop
-  type: ClusterIP
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+  - port: 80
+  selector:
+    run: cop
 
 
 ---
@@ -45,12 +38,12 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   #namespace: go
-  name: go-ingress
+  name: cop-ingress
   annotations:
     allow.http: "false"
 spec:
   rules:
-  - host: go.rancher.selia.com.br
+  - host: cop.rancher.selia.com.br
     http:
       paths:
         - path: /
