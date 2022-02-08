@@ -18,7 +18,7 @@ spec:
       -name: testquay
       containers:
       - name: cop
-        image: ghcr.io/seliafullcommerce/consulta-pedido-operacao:latest
+        image: seliafullcommerce/consulta-pedido-operacao:latest
         ports:
         - containerPort: 80
       
@@ -42,7 +42,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   #namespace: go
-  name: cop-ingress
+  name: default-ingress
   annotations:
     allow.http: "false"
 spec:
