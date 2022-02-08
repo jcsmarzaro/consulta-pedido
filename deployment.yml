@@ -18,7 +18,7 @@ spec:
       -name: testquay
       containers:
       - name: cop
-        image: seliafullcommerce/consulta-pedido-operacao:latest
+        image: consulta-pedido-operacao:latest
         ports:
         - containerPort: 80
       
