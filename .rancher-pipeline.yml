@@ -1,5 +1,17 @@
 stages:
-- name: Deploy
-  steps:
-   - applyYamlConfig:
-       path: ./deployment.yml
+- name: Build
+  steps: 
+   - runScriptConfig:
+      image: mcr.microsoft.com/dotnet/sdk:6.0
+      shellScript: dotnet restore
+- name: Publish
+  steps: 
+  - publishImageConfig:
+    dockerfilePath: ./Dockerfile
+    buildContext: .
+    tag: consulta-pedido:${CICD_EXECUTION_SEQUENCE}
+
+#- name: Deploy
+#  steps:
+#   - applyYamlConfig:
+#       path: ./deployment.yml
