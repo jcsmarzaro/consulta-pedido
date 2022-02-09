@@ -44,7 +44,7 @@ metadata:
   #namespace: go
   name: cop-ingress
   annotations:
-    allow.http: "false"
+    allow.http: "true"
 spec:
   rules:
   - host: cop.rancher.selia.com.br
