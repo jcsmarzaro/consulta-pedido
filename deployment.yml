@@ -26,7 +26,7 @@ spec:
 kind: Service
 apiVersion: v1
 metadata:
-  name: cop
+  name: cop-service
 spec:
   selector:
     app: cop
@@ -51,5 +51,5 @@ spec:
       paths:
         - path: /
           backend:
-            serviceName: cop
+            serviceName: cop-service
             servicePort: 80
