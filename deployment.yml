@@ -36,8 +36,8 @@ spec:
   type: ClusterIP
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 80
+      targetPort: 80
 
 ---
 apiVersion: extensions/v1beta1
@@ -55,4 +55,4 @@ spec:
         - path: /
           backend:
             serviceName: cop-service
-            servicePort: 8080
+            servicePort: 80
