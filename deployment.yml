@@ -16,20 +16,17 @@ spec:
       labels:
         app: cop
     spec:
-      imagePullSecrets:
-      -name: pipeline-docker-registry
       containers:
       - name: cop
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
         - containerPort: 80
-      
-      
+     
 ---
 kind: Service
 apiVersion: v1
 metadata:
-  name: dotnet-service
+  name: cop
 spec:
   selector:
     app: cop
@@ -54,5 +51,5 @@ spec:
       paths:
         - path: /
           backend:
-            serviceName: dotnet-service
+            serviceName: cop
             servicePort: 80
