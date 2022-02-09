@@ -1,9 +1,10 @@
+
+#- name: Build
+#  steps: 
+#   - runScriptConfig:
+#      image: mcr.microsoft.com/dotnet/sdk:6.0
+#      shellScript: dotnet restore
 stages:
-- name: Build
-  steps: 
-   - runScriptConfig:
-      image: mcr.microsoft.com/dotnet/sdk:6.0
-      shellScript: dotnet restore
 - name: Publish
   steps: 
   - publishImageConfig:
