@@ -21,29 +21,30 @@ spec:
         image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
         - containerPort: 80
-     
+
 ---
 kind: Service
 apiVersion: v1
 metadata:
   name: cop-service
+  #namespace: go
 spec:
   selector:
     app: cop
-  type: clusterIP
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
-  
+
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   #namespace: go
-  name: p-lzzh7-pipeline-ingress
+  name: cop-ingress
   annotations:
-    allow.http: "true"
+    allow.http: "false"
 spec:
   rules:
   - host: cop.rancher.selia.com.br
