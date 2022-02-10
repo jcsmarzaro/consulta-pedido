@@ -14,6 +14,9 @@ stages:
       tag: consultapedido:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: docker-hub
+    env:
+      PLUGIN_DEBUG: "true"
+      PLUGIN_INSECURE: "true"
 - name: Deploy
   steps:
   - applyYamlConfig:
