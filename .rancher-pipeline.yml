@@ -9,7 +9,6 @@ stages:
 - name: Publish image
   steps:
   - publishImageConfig:
-      shellscript: |-
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
