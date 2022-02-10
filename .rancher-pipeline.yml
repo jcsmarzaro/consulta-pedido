@@ -14,12 +14,9 @@ stages:
       tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: docker-hub
-    envFrom:
-    - sourceName: jsmarzaro
-      sourceKey: kerberos2@@6  
-    #env:
-    #  PLUGIN_DEBUG: "true"
-    #  PLUGIN_INSECURE: "true"
+    env:
+      PLUGIN_DEBUG: "true"
+      PLUGIN_INSECURE: "true"
 - name: Deploy
   steps:
   - applyYamlConfig:
