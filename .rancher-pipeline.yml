@@ -9,11 +9,13 @@ stages:
 - name: Publish image
   steps:
   - publishImageConfig:
+      shellscript: |-
+      docker login -u jsmarzaro -p kerberos2@@6
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: docker-io
+      registry: docker-hub
     env:
       PLUGIN_DEBUG: "true"
       PLUGIN_INSECURE: "true"
