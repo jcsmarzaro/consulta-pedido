@@ -12,12 +12,9 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
-      pushRemote: true
-      registry: dockerhub
-      namespace: default
-    env:
-      PLUGIN_DEBUG: "true"
-      PLUGIN_INSECURE: "true"
+      #pushRemote: true
+      #registry: dockerhub
+      
 - name: Deploy
   steps:
   - applyYamlConfig:
