@@ -1,19 +1,19 @@
 stages:
-- name: Codeception test
-  steps:
-  - runScriptConfig:
-      image: mcr.microsoft.com/dotnet/sdk:6.0
-      shellScript: |-
-        dotnet restore
-        dotnet publish -c Debug -o out        
-- name: Publish image
-  steps:
-  - publishImageConfig:
-      dockerfilePath: ./Dockerfile
-      buildContext: .
-      tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
-      #pushRemote: true
-      #registry: dockerhub
+#- name: Codeception test
+#  steps:
+#  - runScriptConfig:
+#      image: mcr.microsoft.com/dotnet/sdk:6.0
+#      shellScript: |-
+#        dotnet restore
+#        dotnet publish -c Debug -o out        
+#- name: Publish image
+#  steps:
+#  - publishImageConfig:
+#      dockerfilePath: ./Dockerfile
+#      buildContext: .
+#      tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
+#      #pushRemote: true
+#      #registry: dockerhub
       
 - name: Deploy
   steps:
