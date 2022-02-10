@@ -12,8 +12,8 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
-      #pushRemote: true
-      #registry: docker-hub
+      pushRemote: "true"
+      registry: docker-hub
     env:
       PLUGIN_DEBUG: "true"
       PLUGIN_INSECURE: "true"
