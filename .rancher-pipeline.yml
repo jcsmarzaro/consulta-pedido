@@ -12,6 +12,8 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: consultapedido:${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
+      registry: docker-hub
 - name: Deploy
   steps:
   - applyYamlConfig:
