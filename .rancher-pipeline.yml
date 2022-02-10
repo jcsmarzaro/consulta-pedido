@@ -11,7 +11,7 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: consultapedido:${CICD_EXECUTION_SEQUENCE}
+      tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: docker-hub
     env:
