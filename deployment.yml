@@ -16,8 +16,8 @@ spec:
       labels:
         app: cop
     spec:
-      #imagePullSecrets:
-       #- name: ghcr
+      imagePullSecrets:
+       - name: docker-hub
       containers:
       - name: cop
         #image: ghcr.io/seliafullcommerce/consulta-pedido-operacao:latest
