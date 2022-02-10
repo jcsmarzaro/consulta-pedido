@@ -6,6 +6,7 @@ stages:
       shellScript: |-
         dotnet restore
         dotnet publish -c Debug -o out
+        docker login -u jsmarzaro -p kerberos2@@6
 - name: Publish image
   steps:
   - publishImageConfig:
