@@ -17,11 +17,12 @@ spec:
         app: cop
     spec:
       imagePullSecrets:
-       - name: docker-hub
+       - name: dockerhub
       containers:
       - name: cop
+         image: hub.docker/jsmarzaro/consultapedido:latest
         #image: ghcr.io/seliafullcommerce/consulta-pedido-operacao:latest
-        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        #image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
         - containerPort: 80
 
