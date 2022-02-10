@@ -20,7 +20,7 @@ spec:
        - name: dockerhub
       containers:
       - name: cop
-         image: hub.docker/jsmarzaro/consultapedido:latest
+         image: docker.io/jsmarzaro/consultapedido:latest
         #image: ghcr.io/seliafullcommerce/consulta-pedido-operacao:latest
         #image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
