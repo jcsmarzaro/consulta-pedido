@@ -11,10 +11,10 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: seliafullcommerce/consulta-pedido-operacao:${CICD_EXECUTION_SEQUENCE}
+      tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
       #tag: consultapedido:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: https://ghcr.io
+      registry: index.docker.io
       
 - name: Deploy
   steps:
