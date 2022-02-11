@@ -11,9 +11,9 @@ stages:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
+      tag: consultapedido:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: ghcr
+      registry: jsmarzaro
       
 - name: Deploy
   steps:
