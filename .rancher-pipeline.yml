@@ -14,7 +14,7 @@ stages:
       tag: seliafullcommerce/consulta-pedido-operacao:${CICD_EXECUTION_SEQUENCE}
       #tag: consultapedido:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: ghcr
+      registry: https://ghcr.io
       
 - name: Deploy
   steps:
