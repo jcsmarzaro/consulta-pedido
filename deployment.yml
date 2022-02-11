@@ -16,8 +16,8 @@ spec:
       labels:
         app: cop
     spec:
-      #imagePullSecrets:
-       #- name: ghcr
+      imagePullSecrets:
+       - name: index.docker.io
       containers:
       - name: cop
         #image: docker.io/jsmarzaro/consultapedido:latest
