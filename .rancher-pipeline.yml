@@ -12,8 +12,8 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
-      #pushRemote: true
-      #registry: jsmarzaro
+      pushRemote: true
+      registry: ghcr
       
 - name: Deploy
   steps:
