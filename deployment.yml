@@ -22,7 +22,7 @@ spec:
       - name: cop
         #image: docker.io/jsmarzaro/consultapedido:latest
         image: ghcr.io/seliafullcommerce/consulta-pedido-operacao:latest
-        #image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        #image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}#
         ports:
         - containerPort: 80
 
