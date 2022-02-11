@@ -17,12 +17,12 @@ spec:
         app: cop
     spec:
       imagePullSecrets:
-       - name: smarzaro
+       - name: ghcr
       containers:
       - name: cop
         #image: docker.io/jsmarzaro/consultapedido:latest
-        #image: ghcr.io/seliafullcommerce/consulta-pedido-operacao:latest
-        image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
+        image: ghcr.io/seliafullcommerce/consulta-pedido-operacao:latest
+        #image: ${CICD_IMAGE}:${CICD_EXECUTION_SEQUENCE}
         ports:
         - containerPort: 80
 
