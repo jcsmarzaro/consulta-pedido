@@ -14,7 +14,7 @@ stages:
       tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
       #tag: consultapedido:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: smarzaro
+      #registry: smarzaro
       
 - name: Deploy
   steps:
