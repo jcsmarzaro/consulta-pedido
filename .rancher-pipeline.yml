@@ -14,7 +14,7 @@ stages:
       tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
       #tag: consultapedido:${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
-      registry: index.docker.io
+      registry: smarzaro
       
 - name: Deploy
   steps:
