@@ -13,7 +13,7 @@ stages:
       buildContext: .
       #tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
       tag: consultapedido:${CICD_EXECUTION_SEQUENCE}
-      pushRemote: true
+      #pushRemote: true
       #registry: smarzaro
       
 - name: Deploy
