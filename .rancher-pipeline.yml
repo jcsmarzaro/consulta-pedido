@@ -1,21 +1,10 @@
 stages:
-#- name: Codeception test
-#  steps:
-#  - runScriptConfig:
-#      image: mcr.microsoft.com/dotnet/sdk:6.0
-#      shellScript: |-
-#        dotnet restore
-#        dotnet publish -c Debug -o out        
-#- name: Publish image
-#  steps:
-#  - publishImageConfig:
-#      dockerfilePath: ./Dockerfile
-#      buildContext: .
-#      tag: jsmarzaro/consultapedido:${CICD_EXECUTION_SEQUENCE}
-#      #tag: consultapedido:${CICD_EXECUTION_SEQUENCE}
-#      pushRemote: true
-#      #cd /usr/localregistry: smarzaro
-      
+- name: Gerar Imagem do Consulta Pedido
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: COP:${CICD_EXECUTION_SEQUENCE}        
 - name: Deploy
   steps:
   - applyYamlConfig:
