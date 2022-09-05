@@ -17,7 +17,7 @@ spec:
         app: cop
     spec:
       imagePullSecrets:
-       - name: ghcr
+       - name: pipeline-docker-registry
       containers:
       - name: cop
         #image: docker.io/jsmarzaro/consultapedido:latest
